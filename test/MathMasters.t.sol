@@ -58,4 +58,12 @@ contract MathMastersTest is Base_Test {
     function testSqrtFuzzSolmate(uint256 x) public pure {
         assert(MathMasters.sqrt(x) == solmateSqrt(x));
     }
+
+    function testMulWadUpRevert() public {
+        uint256 y = 100;
+        uint256 x = (type(uint256).max / y) + 1;
+        vm.expectRevert(0xa56044f7);
+        uint256 r = MathMasters.mulWadUp(x, y);
+        console2.log("r", r);
+    }
 }
