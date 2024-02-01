@@ -37,7 +37,7 @@ library MathMasters {
         assembly {
             // Equivalent to `require(y == 0 || x <= type(uint256).max / y)`.
             if mul(y, gt(x, div(not(0), y))) {
-                mstore(0x40, 0xbac65e5b) // `MathMasters__MulWadFailed()`.
+                mstore(0x00, 0xa56044f7) // `MathMasters__MulWadFailed()`.
                 revert(0x1c, 0x04)
             }
             z := div(mul(x, y), WAD)
@@ -50,7 +50,7 @@ library MathMasters {
         assembly {
             // Equivalent to `require(y == 0 || x <= type(uint256).max / y)`.
             if mul(y, gt(x, or(div(not(0), y), x))) {
-                mstore(0x40, 0xbac65e5b) // `MathMasters__MulWadFailed()`.
+                mstore(0x00, 0xa56044f7) // `MathMasters__MulWadFailed()`.
                 revert(0x1c, 0x04)
             }
             if iszero(sub(div(add(z, x), y), 1)) { x := add(x, 1) }
