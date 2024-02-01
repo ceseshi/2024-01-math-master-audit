@@ -1,6 +1,6 @@
 -include .env
 
-.PHONY: all test clean deploy fund help install snapshot format anvil 
+.PHONY: all test clean deploy fund help install snapshot format anvil
 
 all: clean remove install update build test
 
@@ -17,7 +17,7 @@ update:; forge update
 
 build:; forge build
 
-test :; forge test 
+test :; forge test
 
 coverage :; forge coverage --report debug > coverage-report.txt
 
@@ -25,10 +25,12 @@ snapshot :; forge snapshot
 
 format :; forge fmt
 
-slither :; slither . --config-file slither.config.json 
+slither :; slither . --config-file slither.config.json
 
 aderyn :; aderyn .
 
 scope :; tree ./src/ | sed 's/└/#/g; s/──/--/g; s/├/#/g; s/│ /|/g; s/│/|/g'
 
 scopefile :; @tree ./src/ | sed 's/└/#/g' | awk -F '── ' '!/\.sol$$/ { path[int((length($$0) - length($$2))/2)] = $$2; next } { p = "src"; for(i=2; i<=int((length($$0) - length($$2))/2); i++) if (path[i] != "") p = p "/" path[i]; print p "/" $$2; }' > scope.txt
+
+pdf :; pandoc ./audit-data/report.md -o ./audit-data/report.pdf --from markdown --template=./audit-data/eisvogel --listings
