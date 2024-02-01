@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-pragma solidity ^0.8.3;
+pragma solidity ^0.8.4;
 
 import {Base_Test, console2} from "./Base_Test.t.sol";
-import {MathMasters} from "src/MathMasters.sol";
+import {MathMasters} from "../src/MathMasters.sol";
 
 contract MathMastersTest is Base_Test {
     function testMulWad() public {

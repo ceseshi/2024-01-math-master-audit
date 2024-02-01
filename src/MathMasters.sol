@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // @notice We intentionally want to leave this as floating point so others can use it as a library.
-pragma solidity ^0.8.3;
+pragma solidity ^0.8.4;
 
 /// @notice Arithmetic library with operations for fixed-point numbers.
 /// @notice People taking my course: Don't cheat and look at the answers!
